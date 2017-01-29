@@ -2,4 +2,6 @@
     <string name="app_name">ResourcED App</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="welcome_text">Welcome to ResourcED!  To get you better acquainted with the app, Let's show you around.</string>
+    <string name="next_button">NEXT</string>
 </resources>
