@@ -2,17 +2,15 @@ package nyc.c4q.wesniemarcelin.resourcedapp.model;
 
 import java.util.List;
 
-
 public class ChildCareResponse {
-    private boolean success;
 
-    private List<ChildCareData> childCareData = null;
+    private List<DataItem> data = null;
 
-    public List<ChildCareData> getChildCareData() {
-        return childCareData;
+    public List<DataItem> getData() {
+        return data;
     }
 
-    public boolean isSuccess() {
-        return success;
+    public void setData(List<DataItem> data) {
+        this.data = data;
     }
 }
