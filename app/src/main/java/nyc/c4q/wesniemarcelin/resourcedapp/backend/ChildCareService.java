@@ -6,5 +6,5 @@ import retrofit2.http.GET;
 
 public interface ChildCareService {
     @GET("cgi-bin/1_11_2017_exam.pl")
-    Call<ChildCareResponse> getChildCareData();
+    Call<ChildCareResponse> getData();
 }
