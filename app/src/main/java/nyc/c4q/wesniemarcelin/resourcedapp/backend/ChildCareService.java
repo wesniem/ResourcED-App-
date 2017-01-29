@@ -5,6 +5,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ChildCareService {
-    @GET("cgi-bin/1_11_2017_exam.pl")
+    @GET("api/views/sd93-evwm/rows.json")
     Call<ChildCareResponse> getData();
 }

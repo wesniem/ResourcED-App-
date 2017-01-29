@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ChildCareClient {
     private static final String TAG = "Connection result";
-    private static String BASE_URL = "http://jsjrobotics.nyc/";
+    private static String BASE_URL = "https://data.cityofnewyork.us/";
 //    private RecyclerView childCareRecyclerView;
 //    private View mRoot;
 //    private ChildCareAdapter adapter;
