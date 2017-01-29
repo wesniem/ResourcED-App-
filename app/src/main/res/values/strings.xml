@@ -2,4 +2,7 @@
     <string name="app_name">ResourcED App</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="home_tab">Home</string>
+    <string name="profile_tab">Profile</string>
+    <string name="favorites_tab">Favorites</string>
 </resources>
