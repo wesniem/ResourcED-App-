@@ -1,15 +1,14 @@
 package nyc.c4q.wesniemarcelin.resourcedapp;
 
 import android.content.res.Configuration;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,29 +27,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         // Find our drawer view
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        // ...From section above...
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);// ...From section above...
         // Find our drawer view
-        nvDrawer = (NavigationView) findViewById(R.id.nvView);
-        // Setup drawer view
+        nvDrawer = (NavigationView) findViewById(R.id.nvView); // Setup drawer view
         setupDrawerContent(nvDrawer);
-
-
         // Tie DrawerLayout events to the ActionBarToggle
         mDrawer.setDrawerListener(drawerToggle);
         drawerToggle = setupDrawerToggle();
-
-
-
         View headerLayout = nvDrawer.getHeaderView(0);
-
         Menu menu = nvDrawer.getMenu();
         MenuItem menuItem = menu.findItem(R.id.nav_switch);
         View actionView = MenuItemCompat.getActionView(menuItem);
@@ -60,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
     }
 
@@ -100,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
 //            default:
 //                fragmentClass = FirstFragment.class;
 //        }
-
 //        try {
 //            fragment = (Fragment) fragmentClass.newInstance();
 //        } catch (Exception e) {
@@ -122,9 +108,8 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle setupDrawerToggle() {
         // NOTE: Make sure you pass in a valid toolbar reference.  ActionBarDrawToggle() does not require it
         // and will not render the hamburger icon without it.
-        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open, R.string.drawer_close);
     }
-
     // `onPostCreate` called when activity start-up is complete after `onStart()`
     // NOTE 1: Make sure to override the method with only a single `Bundle` argument
     // Note 2: Make sure you implement the correct `onPostCreate(Bundle savedInstanceState)` method.
@@ -135,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
         // Sync the toggle state after onRestoreInstanceState has occurred.
         drawerToggle.syncState();
     }
-
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
