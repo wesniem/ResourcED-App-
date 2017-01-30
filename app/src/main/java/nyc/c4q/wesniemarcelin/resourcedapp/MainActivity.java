@@ -13,6 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
@@ -103,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         setTitle(menuItem.getTitle());
         // Close the navigation drawer
         mDrawer.closeDrawers();
+
     }
 
     private ActionBarDrawerToggle setupDrawerToggle() {
