@@ -26,6 +26,16 @@ public class MapInstructionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mroot = inflater.inflate(R.layout.map_instruction_layout,container,false);
         mapNextButton = (Button) mroot.findViewById(R.id.next_button2);
+
+        mapNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .add(R.id.flContent, new HomeInstructionFragment())
+                        .commit();
+            }
+        });
 //        beginAnimation();
 
 
