@@ -11,7 +11,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ResourcED™"
+        android:textSize="30sp"
+        android:text="@string/drawer_title"
+        android:textColor="@android:color/white"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:text="@string/drawer_subtitle"
+        android:textStyle="italic"
         android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
