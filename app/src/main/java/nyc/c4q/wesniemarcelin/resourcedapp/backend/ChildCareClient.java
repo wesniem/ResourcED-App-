@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by josevila on 1/29/17.
  */
 
-public class ChildCareClient {
+public class ChildCareClient extends {
     private static final String TAG = "Connection result";
     private static String BASE_URL = "https://data.cityofnewyork.us/";
 //    private RecyclerView childCareRecyclerView;

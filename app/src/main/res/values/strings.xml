@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">ResourcED App</string>
+    <string name="app_name">ResourcED™ NYC</string>
+    <string name="drawer_title">ResourcED™ NYC</string>
+    <string name="drawer_subtitle">NYC\'s Premiere UPK and Daycare Locator</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="home_tab">Home</string>
