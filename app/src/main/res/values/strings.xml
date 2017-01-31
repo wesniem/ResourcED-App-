@@ -11,4 +11,6 @@
     <string name="home_tab">Home</string>
     <string name="profile_tab">Profile</string>
     <string name="favorites_tab">Favorites</string>
+    <string name="daycare_text">Click to access DayCare Resources</string>
+    <string name="prek_text">Click to access PreSchool Resources</string>
 </resources>
