@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="nyc.c4q.wesniemarcelin.resourcedapp.google_map.MapsActivity_Hakeem">
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_weight="1"
         android:name="com.google.android.gms.maps.MapFragment"
         android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         tools:context = "nyc.c4q.wesniemarcelin.resourcedapp.google_map.MapsActivity">
     </fragment>
-</RelativeLayout>
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_weight="1"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:id="@+id/child_care_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:context = "nyc.c4q.wesniemarcelin.resourcedapp.google_map.MapsActivity">
+    </fragment>
+
+
+</LinearLayout>
