@@ -38,19 +38,27 @@ public class MapsActivity_Hakeem extends AppCompatActivity implements OnMapReady
              */
             String place = dataToMap.get(i).get(8);
             googleMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(Double.valueOf(place.substring(7, 25)), Double.valueOf(place.substring(26, 43))))
+                    .position(getLatLngFromRadius(place))
                     .title(dataToMap.get(i).get(9)));
         }
     }
 
-    void distanceSearch(LatLng center, double radius) {
-        ArrayList<ArrayList<String>> dataInRange;
+    ArrayList<ArrayList<String>> distanceSearch(LatLng center, double radius) {
+        ArrayList<ArrayList<String>> dataInRange = new ArrayList<>();
         for (int i = 0; i < retrofitData.size(); i++) {
-
+            String place = retrofitData.get(i).get(8);
+            if (distanceFromPoint(center, getLatLngFromRadius(place)) < (radius * ONEMILEINDEGREES)) {
+                dataInRange.add(retrofitData.get(i));
+            }
         }
+        return dataInRange;
     }
 
-    public double distanceFromPoint(LatLng a, LatLng b) {
+    private LatLng getLatLngFromRadius(String place) {
+        return new LatLng(Double.valueOf(place.substring(7, 25)), Double.valueOf(place.substring(26, 43)));
+    }
+
+    private double distanceFromPoint(LatLng a, LatLng b) {
         return Math.sqrt(Math.pow(a.longitude - b.longitude, 2) + Math.pow(a.latitude - b.latitude, 2));
     }
 }
