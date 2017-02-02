@@ -20,7 +20,6 @@ public class ChildCareClient {
         connectToServer(BASE_URL);
 
         }
-
     private static final String TAG = "Connection result";
     private static String BASE_URL = "https://data.cityofnewyork.us/";
 
