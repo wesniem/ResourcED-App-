@@ -1,7 +1,13 @@
 <resources>
-    <string name="app_name">ResourcED App</string>
+    <string name="app_name">ResourcED™ NYC</string>
+    <string name="drawer_title">ResourcED™ NYC</string>
+    <string name="drawer_subtitle">NYC\'s Premiere UPK and Daycare Locator</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="welcome_text">Welcome to ResourcED!  To get you better acquainted with the app, Let\'s show you around.</string>
+    <string name="next_button">NEXT >>></string>
+    <string name="instruction_text">To acquire your app settings, press the hamburger button at the top left until you see the image below</string>
+    <string name="map_text">Once you have chosen the resource that you would like more information on, enter the address to find the location nearest you</string>
     <string name="home_tab">Home</string>
     <string name="profile_tab">Profile</string>
     <string name="favorites_tab">Favorites</string>

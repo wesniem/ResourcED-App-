@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import nyc.c4q.wesniemarcelin.resourcedapp.backend.ChildCareClient;
 
 
+import nyc.c4q.wesniemarcelin.resourcedapp.fragments.WelcomeFragment;
+
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
@@ -61,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add(R.id.flContent, new WelcomeFragment())
+                .commit();
+
 
     }
 
