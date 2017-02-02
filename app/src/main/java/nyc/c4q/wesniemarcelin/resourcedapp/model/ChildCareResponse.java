@@ -1,16 +1,20 @@
 package nyc.c4q.wesniemarcelin.resourcedapp.model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ChildCareResponse {
 
-    private List<DataItem> data = null;
 
-    public List<DataItem> getData() {
+
+    private ArrayList<ArrayList<String>> data;
+
+
+
+    public ArrayList<ArrayList<String>> getData() {
         return data;
     }
-
-    public void setData(List<DataItem> data) {
+    public void setData(ArrayList<ArrayList<String>> data) {
         this.data = data;
     }
+
 }

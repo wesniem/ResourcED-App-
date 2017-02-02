@@ -13,9 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.app.FragmentTransaction;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import java.util.ArrayList;
+
+import nyc.c4q.wesniemarcelin.resourcedapp.backend.ChildCareClient;
 
 
 import nyc.c4q.wesniemarcelin.resourcedapp.fragments.WelcomeFragment;
@@ -24,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
+    /*
+     HAKEEM: adding a childcare client object to the main activity this will be where we store
+      the data obtained after the retrofit call
+    */
+    ChildCareClient childCareClient;
+    ArrayList<ArrayList<String>> data;
 
     // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
     // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
@@ -33,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        childCareClient = new ChildCareClient();
+        data = childCareClient.getData();
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
