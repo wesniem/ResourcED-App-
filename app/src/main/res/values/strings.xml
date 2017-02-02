@@ -8,9 +8,11 @@
     <string name="next_button">NEXT >>></string>
     <string name="instruction_text">To acquire your app settings, press the hamburger button at the top left until you see the image below</string>
     <string name="map_text">Once you have chosen the resource that you would like more information on, enter the address to find the location nearest you</string>
+    <string name="card_text">You would then choose your desired resource</string>
+    <string name="begin_text">You are now ready to use ResourcED!</string>
     <string name="home_tab">Home</string>
     <string name="profile_tab">Profile</string>
     <string name="favorites_tab">Favorites</string>
-    <string name="daycare_text">Click to access DayCare Resources</string>
-    <string name="prek_text">Click to access PreSchool Resources</string>
+    <string name="daycare_text">DayCare </string>
+    <string name="prek_text">Universal Pre-K </string>
 </resources>

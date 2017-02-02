@@ -32,7 +32,7 @@ public class MapInstructionsFragment extends Fragment {
             public void onClick(View view) {
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
-                        .add(R.id.flContent, new HomeInstructionFragment())
+                        .add(R.id.flContent, new BeginAppInstructionFragment())
                         .commit();
             }
         });

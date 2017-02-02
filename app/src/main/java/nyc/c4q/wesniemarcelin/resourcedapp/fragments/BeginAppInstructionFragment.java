@@ -7,30 +7,27 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 
 import nyc.c4q.wesniemarcelin.resourcedapp.R;
 
-
 /**
- * Created by wesniemarcelin on 1/30/17.
+ * Created by wesniemarcelin on 2/2/17.
  */
-public class HomeInstructionFragment extends Fragment {
+public class BeginAppInstructionFragment extends Fragment {
     View mroot;
-    Button next;
-
+    ImageView beginImage;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mroot = inflater.inflate(R.layout.home_instructions, container, false);
-        next = (Button) mroot.findViewById(R.id.next_button3);
-
-        next.setOnClickListener(new View.OnClickListener() {
+        mroot = inflater.inflate(R.layout.begin_frag_layout,container, false);
+        beginImage = (ImageView) mroot.findViewById(R.id.begin_button);
+        beginImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
-                        .add(R.id.flContent, new MapInstructionsFragment())
+                        .add(R.id.flContent, new HomeScreenFragment())
                         .commit();
             }
         });

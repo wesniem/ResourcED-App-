@@ -35,7 +35,7 @@ public class NavInstructionsFragment extends Fragment {
             public void onClick(View view) {
                 FragmentManager fragment = getFragmentManager();
                 fragment.beginTransaction()
-                        .add(R.id.flContent, new MapInstructionsFragment())
+                        .add(R.id.flContent, new HomeInstructionFragment())
                         .commit();
             }
         });
