@@ -21,7 +21,7 @@ public class ChildCareClient {
 
         }
     private static final String TAG = "Connection result";
-    private static String BASE_URL = "https://data.cityofnewyork.us/";git
+    private static String BASE_URL = "https://data.cityofnewyork.us/";
 
     public ArrayList<ArrayList<String>> getData() {
         return data;
