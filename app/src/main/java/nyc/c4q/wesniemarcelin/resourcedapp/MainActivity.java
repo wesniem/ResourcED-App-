@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import nyc.c4q.wesniemarcelin.resourcedapp.backend.ChildCareClient;
 
 
+import nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment;
 import nyc.c4q.wesniemarcelin.resourcedapp.fragments.WelcomeFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -95,11 +96,11 @@ public class MainActivity extends AppCompatActivity {
     public void selectDrawerItem(MenuItem menuItem) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
-        Class fragmentClass;
-//        switch(menuItem.getItemId()) {
-//            case R.id.nav_first_fragment:
-//                fragmentClass = FirstFragment.class;
-//                break;
+        Class fragmentClass = null;
+        switch(menuItem.getItemId()) {
+            case R.id.nav_first_fragment:
+                fragmentClass = HomeScreenFragment.class;
+                break;
 //            case R.id.nav_second_fragment:
 //                fragmentClass = SecondFragment.class;
 //                break;
@@ -108,12 +109,12 @@ public class MainActivity extends AppCompatActivity {
 //                break;
 //            default:
 //                fragmentClass = FirstFragment.class;
-//        }
-//        try {
-//            fragment = (Fragment) fragmentClass.newInstance();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        }
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
