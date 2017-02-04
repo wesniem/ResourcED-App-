@@ -16,12 +16,13 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+import nyc.c4q.wesniemarcelin.resourcedapp.backend.CallBack;
 import nyc.c4q.wesniemarcelin.resourcedapp.backend.ChildCareClient;
 
 
 import nyc.c4q.wesniemarcelin.resourcedapp.fragments.WelcomeFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CallBack {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        childCareClient = new ChildCareClient();
+        childCareClient = new ChildCareClient(this);
         data = childCareClient.getData();
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -150,5 +151,9 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
+    @Override
+    public void stuff(ArrayList<ArrayList<String>> data) {
+
+    }
 }
 

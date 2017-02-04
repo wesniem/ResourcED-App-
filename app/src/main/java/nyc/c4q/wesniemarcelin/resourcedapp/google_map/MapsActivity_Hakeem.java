@@ -16,6 +16,7 @@ import nyc.c4q.wesniemarcelin.resourcedapp.R;
 public class MapsActivity_Hakeem extends AppCompatActivity implements OnMapReadyCallback {
     private ArrayList<ArrayList<String>> retrofitData;
     private static final double ONEMILEINDEGREES = 1 / 69d;
+    private GoogleMap mapDisplayed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,10 @@ public class MapsActivity_Hakeem extends AppCompatActivity implements OnMapReady
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        mapDisplayed = googleMap;
     }
+
+
 
     void mapMarker(GoogleMap googleMap, ArrayList<ArrayList<String>> dataToMap) {
         for (int i = 0; i < dataToMap.size(); i++) {

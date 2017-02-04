@@ -17,8 +17,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ChildCareClient {
 
+
     private static final String TAG = "Connection result";
     private static String BASE_URL = "https://data.cityofnewyork.us/";
+    private final CallBack cb;
 
     public ArrayList<ArrayList<String>> getData() {
         return data;
@@ -35,7 +37,8 @@ public class ChildCareClient {
     HAKEEM: I added the  constructor  so that inside we can call Jose's connectToServer method
     this will be useful for getting the data we need in the main activity
      */
-    public ChildCareClient() {
+    public ChildCareClient(CallBack cb) {
+        this.cb = cb;
         connectToServer(BASE_URL);
     }
 //    private RecyclerView childCareRecyclerView;
@@ -54,6 +57,7 @@ public class ChildCareClient {
                 HAKEEM: added an arraylist data field that will get populated here
                  */
                 data = response.body().getData();
+                cb.stuff(data);
 
 //                childCareAdapter = new ChildCareAdapter(response.body());
 //                childCareRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
