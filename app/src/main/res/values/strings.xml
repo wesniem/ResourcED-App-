@@ -16,4 +16,15 @@
     <string name="favorites_tab">Favorites</string>
     <string name="daycare_text">DayCare </string>
     <string name="prek_text">Universal Pre-K </string>
+    <string name="address_hint">Address....</string>
+    <string name="radius_hint">Radius: </string>
+    <string name="submit_button">SUBMIT</string>
+
+    <integer-array name="radius_array">
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </integer-array>
 </resources>
