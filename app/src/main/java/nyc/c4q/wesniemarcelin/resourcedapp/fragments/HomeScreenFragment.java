@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import nyc.c4q.wesniemarcelin.resourcedapp.R;
-import nyc.c4q.wesniemarcelin.resourcedapp.google_map_api.MapsActivity;
+import nyc.c4q.wesniemarcelin.resourcedapp.google_map.MapsActivity_Hakeem;
 
 /**
  * Created by wesniemarcelin on 2/2/17.
@@ -29,7 +28,7 @@ public class HomeScreenFragment extends Fragment {
         daycareCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(root.getContext(), MapsActivity.class);
+                Intent intent = new Intent(root.getContext(), MapsActivity_Hakeem.class);
                 startActivity(intent);
             }
         });
@@ -37,7 +36,7 @@ public class HomeScreenFragment extends Fragment {
         prekCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(root.getContext(), MapsActivity.class);
+                Intent intent = new Intent(root.getContext(), MapsActivity_Hakeem.class);
                 startActivity(intent);
             }
         });
