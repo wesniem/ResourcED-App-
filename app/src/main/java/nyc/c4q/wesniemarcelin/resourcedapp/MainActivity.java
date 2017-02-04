@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import nyc.c4q.wesniemarcelin.resourcedapp.backend.ChildCareClient;
 
 
+import nyc.c4q.wesniemarcelin.resourcedapp.fragments.FavoritesFragment;
 import nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment;
 import nyc.c4q.wesniemarcelin.resourcedapp.fragments.WelcomeFragment;
 
@@ -104,11 +105,11 @@ public class MainActivity extends AppCompatActivity {
 //            case R.id.nav_second_fragment:
 //                fragmentClass = SecondFragment.class;
 //                break;
-//            case R.id.nav_third_fragment:
-//                fragmentClass = ThirdFragment.class;
-//                break;
-//            default:
-//                fragmentClass = FirstFragment.class;
+            case R.id.nav_third_fragment:
+                fragmentClass = FavoritesFragment.class;
+                break;
+            default:
+                fragmentClass = HomeScreenFragment.class;
         }
         try {
             fragment = (Fragment) fragmentClass.newInstance();
