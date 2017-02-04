@@ -1,6 +1,5 @@
 package nyc.c4q.wesniemarcelin.resourcedapp.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -35,7 +34,7 @@ public class NavInstructionsFragment extends Fragment {
             public void onClick(View view) {
                 FragmentManager fragment = getFragmentManager();
                 fragment.beginTransaction()
-                        .add(R.id.flContent, new MapInstructionsFragment())
+                        .add(R.id.flContent, new HomeInstructionFragment())
                         .commit();
             }
         });

@@ -16,8 +16,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ChildCareClient {
+    public static void main(String[] args) {
+        connectToServer(BASE_URL);
 
-
+        }
     private static final String TAG = "Connection result";
     private static String BASE_URL = "https://data.cityofnewyork.us/";
     private final CallBack cb;
@@ -30,7 +32,7 @@ public class ChildCareClient {
         this.data = data;
     }
 
-    ArrayList<ArrayList<String>> data;
+    static ArrayList<ArrayList<String>> data;
 
 
     /*
@@ -45,7 +47,7 @@ public class ChildCareClient {
 //    private View mRoot;
 //    private ChildCareAdapter adapter;
 
-    private void connectToServer(String baseUrl) {
+    private static void connectToServer(String baseUrl) {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
         ChildCareService service = retrofit.create(ChildCareService.class);
         Call<ChildCareResponse> call = service.getData();
@@ -54,11 +56,10 @@ public class ChildCareClient {
             public void onResponse(Call<ChildCareResponse> call, Response<ChildCareResponse> response) {
 
                 /*
-                HAKEEM: added an arraylist data field that will get populated here
+                 * HAKEEM: added an arraylist data field that will get populated here
                  */
                 data = response.body().getData();
-                cb.stuff(data);
-
+                // cb.stuff(data);
 //                childCareAdapter = new ChildCareAdapter(response.body());
 //                childCareRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 //                childCareRecyclerView.setAdapter(adapter);

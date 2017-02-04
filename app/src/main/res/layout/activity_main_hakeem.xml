@@ -12,10 +12,7 @@
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="nyc.c4q.wesniemarcelin.resourcedapp.google_map.MapsActivity"
-        tools:layout="@layout/activity_maps"
-        >
-
+        tools:context="nyc.c4q.wesniemarcelin.resourcedapp.google_map.MapsActivity">
     </fragment>
 
 </LinearLayout>
