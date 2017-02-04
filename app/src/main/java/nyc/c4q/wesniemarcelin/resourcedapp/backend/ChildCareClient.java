@@ -43,7 +43,7 @@ public class ChildCareClient {
 //    private View mRoot;
 //    private ChildCareAdapter adapter;
 
-    private static void connectToServer(String baseUrl) {
+    public static void connectToServer(String baseUrl) {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
         ChildCareService service = retrofit.create(ChildCareService.class);
         Call<ChildCareResponse> call = service.getData();

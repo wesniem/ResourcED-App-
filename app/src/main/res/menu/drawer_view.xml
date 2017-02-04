@@ -21,6 +21,7 @@
         app:actionLayout="@layout/action_view_switch"
         android:title="Downloaded only" />
 
+
     <!--<item android:title="Sub items">-->
             <!--<menu>-->
                 <!--<group android:checkableBehavior="single">-->
