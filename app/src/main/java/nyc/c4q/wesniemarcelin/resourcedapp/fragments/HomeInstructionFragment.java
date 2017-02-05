@@ -23,7 +23,7 @@ public class HomeInstructionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mroot = inflater.inflate(R.layout.home_instructions, container, false);
-        next = (Button) mroot.findViewById(R.id.next_button3);
+        //next = (Button) mroot.findViewById(R.id.next_button3);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override

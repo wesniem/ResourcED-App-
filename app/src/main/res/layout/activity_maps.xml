@@ -2,16 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/white"
     >
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.MapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="nyc.c4q.wesniemarcelin.resourcedapp.google_map.MapsActivity"></fragment>
+    <EditText
+        android:id="@+id/search_bar_gmap"
+        android:layout_weight="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter Location"/>
 
+    <EditText
+        android:id="@+id/radius"
+        android:layout_weight="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Enter Radius"/>
 
+    <Button
+        android:layout_weight=".1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/search"
+        android:id="@+id/button2"
+        android:onClick="mapSearch"
+        />
 </LinearLayout>
