@@ -57,15 +57,16 @@ public class MapsActivity_Hakeem extends AppCompatActivity implements OnMapReady
     public void onMapReady(GoogleMap googleMap) {
     }
 
-    void mapMarker(GoogleMap googleMap, ArrayList<ArrayList<String>> dataToMap) {
+    void mapMarker(GoogleMap googleMap, List<Rows> dataToMap) {
         for (int i = 0; i < dataToMap.size(); i++) {
             /*
              * 8 is the string that stores the lat long point
              */
-            String place = dataToMap.get(i).get(8);
+            //String place = dataToMap.get(i).get(8);
+            String place = dataToMap.get(i).getAddress();
             googleMap.addMarker(new MarkerOptions()
                     .position(getLatLngFromRadius(place))
-                    .title(dataToMap.get(i).get(9)));
+                    .title(dataToMap.get(i).getLocname()));
         }
     }
 
