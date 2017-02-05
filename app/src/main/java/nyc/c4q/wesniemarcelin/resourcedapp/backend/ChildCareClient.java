@@ -16,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ChildCareClient {
+
     public static void main(String[] args) {
         connectToServer(BASE_URL);
 
@@ -54,6 +55,8 @@ public class ChildCareClient {
                 /*
                 HAKEEM: added an arraylist data field that will get populated here
                  */
+
+                ChildCareResponse childCareResponse = response.body();
                 data = response.body().getData();
                 System.out.println(data);
                 System.out.println("hahaha much mistake");

@@ -26,8 +26,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         ImageView imageView = (ImageView) findViewById(R.id.books);
         imageView.setAnimation(animation);
 
-        ChildCareClient.connectToServer(ChildCareClient.getBaseUrl());
-        UPKClient.connectToServer(UPKClient.getBaseUrl());
+//        ChildCareClient.connectToServer(ChildCareClient.getBaseUrl());
+//        UPKClient.connectToServer(UPKClient.getBaseUrl());
 
 //        ImageView image = (ImageView) findViewById(R.id.imageView);
 //        Animation hyperspaceJump = AnimationUtils.loadAnimation(this, R.anim.hyperspacejump);
