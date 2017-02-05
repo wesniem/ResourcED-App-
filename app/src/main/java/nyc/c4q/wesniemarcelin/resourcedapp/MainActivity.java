@@ -1,8 +1,10 @@
 package nyc.c4q.wesniemarcelin.resourcedapp;
 
+import android.Manifest;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
@@ -38,11 +40,14 @@ public class MainActivity extends AppCompatActivity {
     // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
     // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
     private ActionBarDrawerToggle drawerToggle;
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActivityCompat.requestPermissions(MainActivity.this,
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
         childCareClient = new ChildCareClient();
         data = childCareClient.getData();
         // Set a Toolbar to replace the ActionBar.
@@ -58,17 +63,16 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle = setupDrawerToggle();
         View headerLayout = nvDrawer.getHeaderView(0);
         Menu menu = nvDrawer.getMenu();
-        MenuItem menuItem = menu.findItem(R.id.nav_switch);
-        View actionView = MenuItemCompat.getActionView(menuItem);
-        actionView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        MenuItem menuItem = menu.findItem(R.id.nav_switch);
+//        View actionView = MenuItemCompat.getActionView(menuItem);
+//        actionView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
-            }
-        });
-
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .add(R.id.flContent, new WelcomeFragment())
                 .commit();
@@ -99,29 +103,33 @@ public class MainActivity extends AppCompatActivity {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
         Class fragmentClass = null;
-        switch(menuItem.getItemId()) {
+//        FragmentManager fragmentManager;
+        switch (menuItem.getItemId()) {
             case R.id.nav_first_fragment:
-                fragmentClass = HomeScreenFragment.class;
+                if (fragmentManager.findFragmentByTag("home_fragment") == null)
+                    fragmentManager.beginTransaction().replace(R.id.flContent, new HomeScreenFragment(), "home_fragment").commit();
+                else
+                    fragmentManager.beginTransaction().replace(R.id.flContent, fragmentManager.findFragmentByTag("home_fragment")).commit();
                 break;
             case R.id.nav_second_fragment:
-                fragmentClass = ProfileFragment.class;
+                if (fragmentManager.findFragmentByTag("profile_fragment") == null)
+                    fragmentManager.beginTransaction().replace(R.id.flContent, new ProfileFragment(), "profile_fragment").commit();
+                else
+                    fragmentManager.beginTransaction().replace(R.id.flContent, fragmentManager.findFragmentByTag("profile_fragment")).commit();
                 break;
             case R.id.nav_third_fragment:
-                fragmentClass = FavoritesFragment.class;
+                if (fragmentManager.findFragmentByTag("favorites_fragment") == null)
+                    fragmentManager.beginTransaction().replace(R.id.flContent, new FavoritesFragment(), "favorites_fragment").commit();
+                else
+                    fragmentManager.beginTransaction().replace(R.id.flContent, fragmentManager.findFragmentByTag("favorites_fragment")).commit();
                 break;
             default:
-                fragmentClass = HomeScreenFragment.class;
+                if (fragmentManager.findFragmentByTag("home_fragment") == null)
+                    fragmentManager.beginTransaction().replace(R.id.flContent, new HomeScreenFragment(), "home_fragment").commit();
+                else
+                    fragmentManager.beginTransaction().replace(R.id.flContent, fragmentManager.findFragmentByTag("home_fragment")).commit();
         }
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
-
+//
         // Highlight the selected item has been done by NavigationView
         menuItem.setChecked(true);
         // Set action bar title
