@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splash_container"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purpleColor">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/resourced_logo"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/books"
+        android:src="@drawable/books_stack"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:text="@string/splash_screen_text"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:fontFamily="cursive"
+        android:textAlignment="center"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imageView"
+        android:layout_gravity="center"
+        android:paddingTop="30dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="50dp"
+        />
+
+
+
+</LinearLayout>

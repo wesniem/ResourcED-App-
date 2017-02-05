@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purpleColor"
+    android:layout_gravity="center">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/avatar2"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/address_text"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textAlignment="center"
+        android:paddingTop="20dp"
+        android:hint="@string/address_hint"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:paddingTop="20dp"
+    >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:text="@string/radius_hint"/>
+
+        <Spinner
+            android:id="@+id/radius_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+</LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit_button"
+        android:text="@string/submit_button"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+
+
+
+</LinearLayout>
