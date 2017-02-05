@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import nyc.c4q.wesniemarcelin.resourcedapp.backend.ChildCareClient;
+import nyc.c4q.wesniemarcelin.resourcedapp.backend.UPKClient;
 
 /**
  * Created by wesniemarcelin on 2/2/17.
@@ -27,7 +27,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         imageView.setAnimation(animation);
 
         ChildCareClient.connectToServer(ChildCareClient.getBaseUrl());
-
+        UPKClient.connectToServer(UPKClient.getBaseUrl());
 
 //        ImageView image = (ImageView) findViewById(R.id.imageView);
 //        Animation hyperspaceJump = AnimationUtils.loadAnimation(this, R.anim.hyperspacejump);

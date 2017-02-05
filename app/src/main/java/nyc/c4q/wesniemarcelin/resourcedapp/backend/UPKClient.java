@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import nyc.c4q.wesniemarcelin.resourcedapp.model.Rows;
 import nyc.c4q.wesniemarcelin.resourcedapp.model.UPKResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,17 +22,17 @@ public class UPKClient {
 
         }
     private static final String TAG = "Connection result";
-    private static String BASE_URL = "https://data.cityofnewyork.us/";
+    private static String BASE_URL = "http://gsx2json.com/";
 
-    public ArrayList<ArrayList<String>> getData() {
+    public ArrayList<Rows> getData() {
         return data;
     }
 
-    public void setData(ArrayList<ArrayList<String>> data) {
+    public void setData(ArrayList<Rows> data) {
         this.data = data;
     }
 
-    static ArrayList<ArrayList<String>> data;
+    static ArrayList<Rows> data;
     /*
     HAKEEM: I added the  constructor  so that inside we can call Jose's connectToServer method
     this will be useful for getting the data we need in the main activity
@@ -43,18 +44,17 @@ public class UPKClient {
 //    private View mRoot;
 //    private ChildCareAdapter adapter;
 
-    private static void connectToServer(String baseUrl) {
+    public static void connectToServer(String baseUrl) {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
         UPKService service = retrofit.create(UPKService.class);
-        Call<UPKResponse> call = service.getData();
+        Call<UPKResponse> call = service.getData("1ITPdXilVjBOLG_rxaSxeWbK-esHrY8AX3pGvixAzDXo", "3", "");
         call.enqueue(new Callback<UPKResponse>() {
             @Override
             public void onResponse(Call<UPKResponse> call, Response<UPKResponse> response) {
-
                 /*
                 HAKEEM: added an arraylist data field that will get populated here
                  */
-                data = response.body().getData();
+                data = response.body().getRows();
                 System.out.println(data);
                 System.out.println("UPK DATA STREAM");
 //                childCareAdapter = new ChildCareAdapter(response.body());
