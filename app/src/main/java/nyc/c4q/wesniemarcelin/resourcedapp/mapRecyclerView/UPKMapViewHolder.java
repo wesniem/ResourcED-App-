@@ -14,12 +14,8 @@ import nyc.c4q.wesniemarcelin.resourcedapp.model.Rows;
 public class UPKMapViewHolder extends RecyclerView.ViewHolder {
     TextView location;
     TextView address;
-    TextView zip;
     TextView phone;
     TextView borough;
-    TextView prekType;
-    TextView seats;
-    TextView dayLength;
 //    RecyclerView recyclerView;
 
     public UPKMapViewHolder(View itemView) {
@@ -27,29 +23,19 @@ public class UPKMapViewHolder extends RecyclerView.ViewHolder {
 //        recyclerView = (RecyclerView)view.findViewById(R.id.map_recycler_view);
         location = (TextView) itemView.findViewById(R.id.location);
         address = (TextView) itemView.findViewById(R.id.address);
-        zip = (TextView) itemView.findViewById(R.id.zip);
         phone = (TextView) itemView.findViewById(R.id.phone);
         borough = (TextView) itemView.findViewById(R.id.borough);
-        prekType = (TextView) itemView.findViewById(R.id.prek_type);
-        seats = (TextView) itemView.findViewById(R.id.seats);
-        dayLength = (TextView) itemView.findViewById(R.id.day_length);
-
-
     }
 
     public void bind(final Rows rows) {
         location.setText(rows.getLocname());
         if (rows.getAddress() == null) {
-            address.setText("None");
+            address.setText("Unknown Address");
         } else {
             address.setText(rows.getAddress().toString());
         }
-        zip.setText(rows.getZip());
-        phone.setText(rows.getPhone());
-        borough.setText(rows.getBorough());
-        prekType.setText(rows.getPrektype());
-        seats.setText(rows.getSeats());
-        dayLength.setText(rows.getDaylength());
+        borough.setText(rows.getBorough() + ", NY " + rows.getZip());
+        phone.setText("Phone: " + rows.getPhone());
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
