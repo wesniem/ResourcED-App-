@@ -16,7 +16,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 
 import nyc.c4q.wesniemarcelin.resourcedapp.R;
-import nyc.c4q.wesniemarcelin.resourcedapp.backend.ChildCareService;
 import nyc.c4q.wesniemarcelin.resourcedapp.backend.places_gmaps.PlaceResponse;
 import nyc.c4q.wesniemarcelin.resourcedapp.backend.places_gmaps.PlaceService;
 import retrofit2.Call;
@@ -24,8 +23,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static android.R.attr.data;
 
 public class MapsActivity_Hakeem extends AppCompatActivity implements OnMapReadyCallback {
     private ArrayList<ArrayList<String>> retrofitData;
@@ -90,7 +87,7 @@ public class MapsActivity_Hakeem extends AppCompatActivity implements OnMapReady
     }
 
     public void mapSearch(View v) {
-        dataToImplement = distanceSearch( new LatLng(0,0), Double.valueOf(radius.getText().toString());
+        dataToImplement = distanceSearch( new LatLng(0,0), Double.valueOf(radius.getText().toString()));
     }
 
     @Override
