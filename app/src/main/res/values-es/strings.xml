@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ResourcED App</string>
-    <string name="drawer_open">Open navigation drawer</string>
-    <string name="drawer_close">Close navigation drawer</string>
-    <string name="home_tab">Home</string>
-    <string name="profile_tab">Profile</string>
-    <string name="favorites_tab">Favorites</string>
+    <string name="app_name">ResourcED™ NYC</string>
+    <string name="drawer_title">ResourcED™ NYC</string>
+    <string name="drawer_subtitle">Ciudad de Nueva York Solo Localizador para UPK y Guarderías</string>
+    <string name="drawer_open">Abrir el cajón de navegación</string>
+    <string name="drawer_close">Cajón de navegación cercano</string>
+    <string name="splash_screen_text">Ciudad de Nueva York Localizador para UPK y Guarderías</string>
+    <string name="welcome_text">¡Bienvenido a ResourcED™ NYC! ¡Para familiarizarse con la aplicación, Vamos a mostrarle todo!</string>
+    <string name="next_button">SIGUIENTE>>></string>
+    <string name="instruction_text">Para obtener la configuración de la aplicación, presione el botón en la parte superior izquierda hasta ver la imagen de abajo</string>
+    <string name="map_text">Una vez que haya seleccionado su fuente, ingrese su dirección para encontrar la ubicación más cercana a usted</string>
+    <string name="card_text">Luego elija el recurso deseado</string>
+    <string name="begin_text">¡Ya está listo para utilizar ResourcED™!</string>
+    <string name="home_tab">Página de inicio</string>
+    <string name="profile_tab">Perfil personal</string>
+    <string name="favorites_tab">Favoritos</string>
+    <string name="daycare_text">Guardería</string>
+    <string name="prek_text">UPK</string>
+    <string name="address_hint">Direccion de casa</string>
+    <string name="radius_hint">Radius</string>
+    <string name="submit_button">ENVIAR</string>
 </resources>
