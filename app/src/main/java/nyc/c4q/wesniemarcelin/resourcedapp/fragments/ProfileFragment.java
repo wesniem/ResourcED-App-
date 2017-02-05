@@ -3,9 +3,15 @@ package nyc.c4q.wesniemarcelin.resourcedapp.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +20,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import nyc.c4q.wesniemarcelin.resourcedapp.R;
 import nyc.c4q.wesniemarcelin.resourcedapp.SpinnerActivity;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by wesniemarcelin on 2/4/17.
@@ -30,8 +41,12 @@ public class ProfileFragment extends Fragment {
     View rootView;
     Spinner spinner;
     String address;
+    ImageView profilePic;
     Button submitButton;
     EditText addressText;
+    private static Bitmap mBitmap;
+    private int PICK_IMAGE_REQUEST = 1;
+
     SharedPreferences sharedPref;
     SharedPreferences sharedPreferences;
 
@@ -47,11 +62,27 @@ public class ProfileFragment extends Fragment {
         rootView = inflater.inflate(R.layout.profile_layout, container, false);
         addressText = (EditText) rootView.findViewById(R.id.address_text);
         submitButton = (Button) rootView.findViewById(R.id.submit_button);
+        profilePic = (ImageView) rootView.findViewById(R.id.avatar);
         spinner = (Spinner) rootView.findViewById(R.id.radius_spinner);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveAddress();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .add(R.id.flContent, new HomeScreenFragment())
+                        .commit();
+
+            }
+        });
+
+        profilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
             }
         });
         spinnerInitializer();
@@ -59,7 +90,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void saveAddress() {
-        address = (String) addressText.getText().toString();
+        address = addressText.getText().toString();
         Log.d("Wesnie", address);
         sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -114,4 +145,32 @@ public class ProfileFragment extends Fragment {
 //    public void onNothingSelected(AdapterView<?> parent) {
 //        // Another interface callback
 //    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            Uri uri = data.getData();
+
+            try {
+                mBitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uri);
+
+//                        ImageView imageView = (ImageView) findViewById(R.id.placeholder);
+//                sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedPref.edit();
+//                editor.putInt()
+                profilePic.setImageBitmap(mBitmap);
+//                mPlaceHolder = (LinearLayout) findViewById(R.id.placeholder);
+//                Drawable d = new BitmapDrawable(getResources(), mBitmap);
+//                mPlaceHolder.setBackground(d);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        }
+    }
 }
