@@ -4,13 +4,9 @@ import java.util.ArrayList;
 
 public class UPKResponse {
 
-    private ArrayList<ArrayList<String>> data;
+    private ArrayList<Rows> rows;
 
-    public ArrayList<ArrayList<String>> getData() {
-        return data;
+    public ArrayList<Rows> getRows() {
+        return rows;
     }
-    public void setData(ArrayList<ArrayList<String>> data) {
-        this.data = data;
-    }
-
 }
