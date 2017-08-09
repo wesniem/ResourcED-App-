@@ -1,7 +1,7 @@
 # ResourcED NYC App
  <br>
 
-Welcome to ResourcED NYC, the app that assists NYC's immagrants and mothers in locating local daycares in their area.
+Welcome to ResourcED NYC, the app that assists NYC's immigrants and mothers in locating local daycares in their area.
 <!---Landing Page/Main Screen Screenshot
 
 Installation Guide
