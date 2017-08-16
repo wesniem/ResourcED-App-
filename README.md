@@ -2,34 +2,28 @@
  <br>
 
 Welcome to ResourcED NYC, the app that assists NYC's immigrants and mothers in locating local daycares in their area.
-Landing Page/Main Screen Screenshot <br>
-<img src="imageFolder/screenshot_splashscreen.png" width="200">
 <br>
-
+<p align="center">
+<img src="imageFolder/screenshot_splashscreen.png" width="200" >
+</p>
+<br>
 
 ## User Guide
 Once the app is installed, click on the ResourcED NYC icon
 Then slide open the navigation drawer on the right and click on user profile
 Enter your information in the fields provided and click save
 A list of daycares in the area will then be shown on the main screen along with information on each location
-
- <br>
+<br>
+<div align="center">
 <img src="imageFolder/welcome_screenshot.png" width="200">
-<br>
 
- <br>
-<img src="imageFolder/imageFolder/begin_screenshot.png" width="200">
-<br>
+<img src="imageFolder/begin_screenshot.png" width="200">
 
- <br>
-<img src="imageFolder/screenshot_map.png" width="200">
-<br>
+<img src="imageFolder/map_screenshot.png" width="200">
 
- <br>
 <img src="imageFolder/screenshot_daycare_upk_screen.png" width="200">
-<br>
 
-
+</div>
 
 ## User Stories
 
@@ -64,19 +58,21 @@ Takes advantage of a mobile device’s language settings (with instructions disp
 ## What Can It Do?
 # Feature 1 (Profile Making)
 After the short tutorial on how to navigate throughout ResourcED NYC, the user can then enter their information and have it saved for future usage of the application
-
- <br>
-<img src="imageFolder/profile_screenshot.JPG" width="200">
 <br>
+<p align="center">
+<img src="imageFolder/profile_screenshot.JPG" width="200">
+</p>
+<br>
+
 
 
 Feature 2 (Daycare Locater)
 Once the current address is entered and saved, the app will then generate a list of all local daycares as well as a map view to show the user how close each location is to them
-
- <br>
-<img src="imageFolder/screenshot_map.png" width="200">
 <br>
-
+<p align="center">
+<img src="imageFolder/map_screenshot.png" width="200">
+</p>
+<br>
 
 
 ## The Future
