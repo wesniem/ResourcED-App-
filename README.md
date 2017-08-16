@@ -27,7 +27,7 @@ A list of daycares in the area will then be shown on the main screen along with 
 
 ## User Stories
 
-(Maria)
+##### (Maria)<br>
 Maria’s daughter Ana is four years old, and Maria wants Ana to be prepared for kindergarten next year. 
 Solution:
 Maria installs  ResourcED™ NYC  on her phone.<br>
@@ -35,7 +35,7 @@ She enters her home address, and finds the nearest Early Childhood program to he
 Maria contacts the program, and schedules an appointment for Ana’s enrollment into the program!
 
 
-(Lordes)
+##### (Lordes)<br>
 Emily’s sister Lordes recently moved from Guatemala to Corona, Queens in July. Lordes speaks only Spanish, and wants to enroll her son Max by September.
 Solution:
 Emily installs  ResourcED™ NYC  on Lordes’s phone.<br>
