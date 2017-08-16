@@ -4,11 +4,19 @@
 Welcome to ResourcED NYC, the app that assists NYC's immigrants and mothers in locating local daycares in their area.
 Landing Page/Main Screen Screenshot
 
+![](imagesFolder/screenshot_splashscreen.png)
 #User Guide
 Once the app is installed, click on the ResourcED NYC icon
 Then slide open the navigation drawer on the right and click on user profile
 Enter your information in the fields provided and click save
 A list of daycares in the area will then be shown on the main screen along with information on each location
+
+![](imagesFolder/welcome_screenshot.png)
+![](imagesFolder/begin_screenshot.png)
+![](imagesFolder/screenshot_map.png)
+![](imagesFolder/screenshot_daycare_upk_screen.png)
+
+
 
 ## User Stories
 
@@ -43,14 +51,13 @@ Takes advantage of a mobile device’s language settings (with instructions disp
 What Can It Do?
 Feature 1 (Profile Making)
 After the short tutorial on how to navigate throughout ResourcED NYC, the user can then enter their information and have it saved for future usage of the application
-Screenshot of feature 1
-Screenshot of feature 1
+![](imagesFolder/profile_screenshot.JPG)
 
 
 Feature 2 (Daycare Locater)
 Once the current address is entered and saved, the app will then generate a list of all local daycares as well as a map view to show the user how close each location is to them
-Screenshot of feature 2
-Screenshot of feature 2
+![](imagesFolder/screenshot_map.png)
+
 
 
 The Future
