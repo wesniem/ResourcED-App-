@@ -1,16 +1,12 @@
 package nyc.c4q.wesniemarcelin.resourcedapp.backend;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import nyc.c4q.wesniemarcelin.resourcedapp.R;
-import nyc.c4q.wesniemarcelin.resourcedapp.google_map.MapsActivity_Hakeem;
-import nyc.c4q.wesniemarcelin.resourcedapp.mapRecyclerView.UPKMapAdapter;
 import nyc.c4q.wesniemarcelin.resourcedapp.model.Rows;
 import nyc.c4q.wesniemarcelin.resourcedapp.model.UPKResponse;
 import retrofit2.Call;
