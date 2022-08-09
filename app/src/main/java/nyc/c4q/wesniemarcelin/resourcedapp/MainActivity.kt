@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.Toolbar
-import nyc.c4q.wesniemarcelin.resourcedapp.R
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -22,21 +21,21 @@ import nyc.c4q.wesniemarcelin.resourcedapp.fragments.FavoritesFragment
 import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
-    private var mDrawer: DrawerLayout? = null
-    private var toolbar: Toolbar? = null
-    private var nvDrawer: NavigationView? = null
+    private lateinit var mDrawer: DrawerLayout
+    private lateinit var toolbar: Toolbar
+    private lateinit var nvDrawer: NavigationView
 
     /*
      HAKEEM: adding a childcare client object to the main activity this will be where we store
       the data obtained after the retrofit call
     */
-    var childCareClient: ChildCareClient? = null
+    private var childCareClient: ChildCareClient? = null
     var data: ArrayList<ArrayList<String>>? = null
 
     // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
     // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
     private var drawerToggle: ActionBarDrawerToggle? = null
-    var fragmentManager: FragmentManager? = null
+    private var fragmentManager: FragmentManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -56,10 +55,10 @@ class MainActivity : AppCompatActivity() {
         nvDrawer = findViewById<View>(R.id.nvView) as NavigationView // Setup drawer view
         setupDrawerContent(nvDrawer)
         // Tie DrawerLayout events to the ActionBarToggle
-        mDrawer!!.setDrawerListener(drawerToggle)
+        mDrawer.setDrawerListener(drawerToggle)
         drawerToggle = setupDrawerToggle()
-        val headerLayout = nvDrawer!!.getHeaderView(0)
-        val menu = nvDrawer!!.menu
+        val headerLayout = nvDrawer.getHeaderView(0)
+        val menu = nvDrawer.menu
         //        MenuItem menuItem = menu.findItem(R.id.nav_switch);
 //        View actionView = MenuItemCompat.getActionView(menuItem);
 //        actionView.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun selectDrawerItem(menuItem: MenuItem) {
+    private fun selectDrawerItem(menuItem: MenuItem) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         val fragment: Fragment? = null
         val fragmentClass: Class<*>? = null
@@ -120,7 +119,7 @@ class MainActivity : AppCompatActivity() {
         // Set action bar title
         title = menuItem.title
         // Close the navigation drawer
-        mDrawer!!.closeDrawers()
+        mDrawer.closeDrawers()
     }
 
     private fun setupDrawerToggle(): ActionBarDrawerToggle {
