@@ -1,42 +1,29 @@
-package nyc.c4q.wesniemarcelin.resourcedapp.mapRecyclerView;
+package nyc.c4q.wesniemarcelin.resourcedapp.mapRecyclerView
 
-import androidx.recyclerview.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import java.util.List;
-
-import nyc.c4q.wesniemarcelin.resourcedapp.R;
-import nyc.c4q.wesniemarcelin.resourcedapp.model.Rows;
+import nyc.c4q.wesniemarcelin.resourcedapp.model.Rows
+import androidx.recyclerview.widget.RecyclerView
+import nyc.c4q.wesniemarcelin.resourcedapp.mapRecyclerView.UPKMapViewHolder
+import android.view.ViewGroup
+import android.view.LayoutInflater
+import nyc.c4q.wesniemarcelin.resourcedapp.R
 
 /**
  * Created by wesniemarcelin on 2/3/17.
  */
-
-public class UPKMapAdapter extends RecyclerView.Adapter<UPKMapViewHolder> {
-    List<Rows> mUPKList;
-
-    public UPKMapAdapter(List<Rows> mUPKList) {
-        this.mUPKList = mUPKList;
-    }
-
+class UPKMapAdapter(var mUPKList: List<Rows>) : RecyclerView.Adapter<UPKMapViewHolder>() {
     //    List<Favorites> mFavList;
-    @Override
-    public UPKMapViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.upk_item_layout, parent, false);
-        return new UPKMapViewHolder(itemView);
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UPKMapViewHolder {
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.upk_item_layout, parent, false)
+        return UPKMapViewHolder(itemView)
     }
 
-    @Override
-    public void onBindViewHolder(UPKMapViewHolder holder, int position) {
-        Rows rows = mUPKList.get(position);
-        holder.bind(rows);
-
+    override fun onBindViewHolder(holder: UPKMapViewHolder, position: Int) {
+        val rows = mUPKList[position]
+        holder.bind(rows)
     }
 
-    @Override
-    public int getItemCount() {
-        return mUPKList.size();
+    override fun getItemCount(): Int {
+        return mUPKList.size
     }
 }

@@ -1,27 +1,25 @@
-package nyc.c4q.wesniemarcelin.resourcedapp;
+package nyc.c4q.wesniemarcelin.resourcedapp
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import nyc.c4q.wesniemarcelin.resourcedapp.R
+import android.content.Intent
+import android.os.Handler
+import android.view.View
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import nyc.c4q.wesniemarcelin.resourcedapp.MainActivity
 
 /**
  * Created by wesniemarcelin on 2/2/17.
  */
-
-public class SplashScreenActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash_screen_layout);
-
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim_hyperspace_jump);
-        ImageView imageView = (ImageView) findViewById(R.id.books);
-        imageView.setAnimation(animation);
+class SplashScreenActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.splash_screen_layout)
+        val animation = AnimationUtils.loadAnimation(this, R.anim.anim_hyperspace_jump)
+        val imageView = findViewById<View>(R.id.books) as ImageView
+        imageView.animation = animation
 
 //        ChildCareClient.connectToServer(ChildCareClient.getBaseUrl());
 //        UPKClient.connectToServer(UPKClient.getBaseUrl());
@@ -29,17 +27,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 //        ImageView image = (ImageView) findViewById(R.id.imageView);
 //        Animation hyperspaceJump = AnimationUtils.loadAnimation(this, R.anim.hyperspacejump);
 //        image.startAnimation(hyperspaceJump);
-
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
-                finish();
-//
-            }
-        }, 6000);
-
-
+        val handler = Handler()
+        handler.postDelayed({
+            startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
+            finish()
+            //
+        }, 6000)
     }
 }

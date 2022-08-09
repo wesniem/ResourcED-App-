@@ -1,12 +1,8 @@
-package nyc.c4q.wesniemarcelin.resourcedapp.model;
+package nyc.c4q.wesniemarcelin.resourcedapp.model
 
-import java.util.ArrayList;
+import nyc.c4q.wesniemarcelin.resourcedapp.model.Rows
+import java.util.ArrayList
 
-public class UPKResponse {
-
-    private ArrayList<Rows> rows;
-
-    public ArrayList<Rows> getRows() {
-        return rows;
-    }
+class UPKResponse {
+    val rows: ArrayList<Rows>? = null
 }
