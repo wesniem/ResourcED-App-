@@ -3,15 +3,16 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdk 32
+    compileSdk 33
     buildToolsVersion '32.0.0'
     defaultConfig {
         applicationId "nyc.c4q.wesniemarcelin.resourcedapp"
         minSdkVersion 19
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -39,7 +40,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation "androidx.core:core-ktx:+"
+    implementation 'com.android.support:multidex:1.0.3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    def version_nav = "2.2.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:$version_nav"
+    implementation "androidx.navigation:navigation-ui-ktx:$version_nav"
 }
 repositories {
     mavenCentral()
