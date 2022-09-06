@@ -14,13 +14,12 @@
 
             <!-- The ActionBar displayed at the top -->
             <include
-                android:id="@+id/toolbar"
                 layout="@layout/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <!-- The main content view where fragments are loaded -->
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:id="@+id/nav_host_fragment_container"
         android:layout_width="match_parent"

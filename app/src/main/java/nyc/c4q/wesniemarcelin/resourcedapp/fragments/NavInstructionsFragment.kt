@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import nyc.c4q.wesniemarcelin.resourcedapp.R
 import nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeInstructionFragment
 
@@ -26,10 +27,7 @@ class NavInstructionsFragment : Fragment() {
         mroot = inflater.inflate(R.layout.instruction_frag, container, false)
         nextButton = mroot.findViewById<View>(R.id.next_button1) as Button
         nextButton!!.setOnClickListener {
-            val fragment = fragmentManager
-            fragment!!.beginTransaction()
-                .add(R.id.flContent, HomeInstructionFragment())
-                .commit()
+            Navigation.findNavController(it).navigate(R.id.homeInstructionsFragment)
         }
         animations()
         return mroot

@@ -3,7 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/homeScreenFragment">
+    app:startDestination="@id/welcomeScreenFragment">
+
+    <fragment
+        android:id="@+id/welcomeScreenFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        tools:layout="@layout/welcome_layout">
+        <action
+            android:id="@+id/action_welcomeScreenFragment_to_navigationInstructionsFragment"
+            app:destination="@id/navigationInstructionsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationInstructionsFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        tools:layout="@layout/instruction_frag">
+        <action
+            android:id="@+id/action_navigationInstructionsFragment_to_homeInstructionsFragment"
+            app:destination="@id/homeInstructionsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeInstructionsFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        tools:layout="@layout/home_instructions">
+        <action
+            android:id="@+id/action_homeInstructionsFragment_to_mapInstructionsFragment"
+            app:destination="@id/mapInstructionsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mapInstructionsFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        tools:layout="@layout/map_instruction_layout">
+        <action
+            android:id="@+id/action_mapInstructionsFragment_to_beginAppInstructionsFragment"
+            app:destination="@id/beginAppInstructionsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/beginAppInstructionsFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        tools:layout="@layout/begin_frag_layout">
+        <action
+            android:id="@+id/action_beginAppInstructionsFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/homeScreenFragment"

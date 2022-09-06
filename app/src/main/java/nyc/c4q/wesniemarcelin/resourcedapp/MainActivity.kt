@@ -2,28 +2,29 @@ package nyc.c4q.wesniemarcelin.resourcedapp
 
 import android.Manifest
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
-import nyc.c4q.wesniemarcelin.resourcedapp.backend.ChildCareClient
-import androidx.appcompat.app.ActionBarDrawerToggle
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
-import androidx.fragment.app.Fragment
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
-import nyc.c4q.wesniemarcelin.resourcedapp.fragments.WelcomeFragment
-import nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment
-import nyc.c4q.wesniemarcelin.resourcedapp.fragments.ProfileFragment
-import nyc.c4q.wesniemarcelin.resourcedapp.fragments.FavoritesFragment
-import java.util.ArrayList
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.navigation.NavigationView
+import nyc.c4q.wesniemarcelin.resourcedapp.backend.ChildCareClient
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var mDrawer: DrawerLayout
     private lateinit var toolbar: Toolbar
     private lateinit var nvDrawer: NavigationView
+    private lateinit var navController: NavController
 
     /*
      HAKEEM: adding a childcare client object to the main activity this will be where we store
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
     private var drawerToggle: ActionBarDrawerToggle? = null
     private var fragmentManager: FragmentManager? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -53,10 +55,19 @@ class MainActivity : AppCompatActivity() {
         mDrawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout // ...From section above...
         // Find our drawer view
         nvDrawer = findViewById<View>(R.id.nvView) as NavigationView // Setup drawer view
-        setupDrawerContent(nvDrawer)
+//        setupDrawerContent(nvDrawer)
         // Tie DrawerLayout events to the ActionBarToggle
         mDrawer.setDrawerListener(drawerToggle)
         drawerToggle = setupDrawerToggle()
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+        navController = navHostFragment.navController
+        NavigationUI.setupActionBarWithNavController(this, navController, mDrawer)
+        val config = AppBarConfiguration.Builder(
+            navController.graph
+        ).setDrawerLayout(
+            mDrawer
+        ).build()
+        NavigationUI.setupWithNavController(toolbar, navController,config)
         val headerLayout = nvDrawer.getHeaderView(0)
         val menu = nvDrawer.menu
         //        MenuItem menuItem = menu.findItem(R.id.nav_switch);
@@ -67,10 +78,10 @@ class MainActivity : AppCompatActivity() {
 //
 //            }
 //        });
-        fragmentManager = supportFragmentManager
-        fragmentManager!!.beginTransaction()
-            .add(R.id.flContent, WelcomeFragment())
-            .commit()
+//        fragmentManager = supportFragmentManager
+//        fragmentManager!!.beginTransaction()
+//            .add(R.id.flContent, WelcomeFragment())
+//            .commit()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -79,48 +90,48 @@ class MainActivity : AppCompatActivity() {
         } else super.onOptionsItemSelected(item)
     }
 
-    private fun setupDrawerContent(navigationView: NavigationView?) {
-        navigationView!!.setNavigationItemSelectedListener { menuItem ->
-            selectDrawerItem(menuItem)
-            true
-        }
-    }
+//    private fun setupDrawerContent(navigationView: NavigationView?) {
+//        navigationView!!.setNavigationItemSelectedListener { menuItem ->
+//            selectDrawerItem(menuItem)
+//            true
+//        }
+//    }
 
-    private fun selectDrawerItem(menuItem: MenuItem) {
-        // Create a new fragment and specify the fragment to show based on nav item clicked
-        val fragment: Fragment? = null
-        val fragmentClass: Class<*>? = null
-        when (menuItem.itemId) {
-            R.id.nav_first_fragment -> if (fragmentManager!!.findFragmentByTag("home_fragment") == null) fragmentManager!!.beginTransaction()
-                .replace(R.id.flContent, HomeScreenFragment(), "home_fragment")
-                .commit() else fragmentManager!!.beginTransaction()
-                .replace(R.id.flContent, fragmentManager!!.findFragmentByTag("home_fragment")!!)
-                .commit()
-            R.id.nav_second_fragment -> if (fragmentManager!!.findFragmentByTag("profile_fragment") == null) fragmentManager!!.beginTransaction()
-                .replace(R.id.flContent, ProfileFragment(), "profile_fragment")
-                .commit() else fragmentManager!!.beginTransaction()
-                .replace(R.id.flContent, fragmentManager!!.findFragmentByTag("profile_fragment")!!)
-                .commit()
-            R.id.nav_third_fragment -> if (fragmentManager!!.findFragmentByTag("favorites_fragment") == null) fragmentManager!!.beginTransaction()
-                .replace(R.id.flContent, FavoritesFragment(), "favorites_fragment")
-                .commit() else fragmentManager!!.beginTransaction().replace(
-                R.id.flContent,
-                fragmentManager!!.findFragmentByTag("favorites_fragment")!!
-            ).commit()
-            else -> if (fragmentManager!!.findFragmentByTag("home_fragment") == null) fragmentManager!!.beginTransaction()
-                .replace(R.id.flContent, HomeScreenFragment(), "home_fragment")
-                .commit() else fragmentManager!!.beginTransaction()
-                .replace(R.id.flContent, fragmentManager!!.findFragmentByTag("home_fragment")!!)
-                .commit()
-        }
-        //
-        // Highlight the selected item has been done by NavigationView
-        menuItem.isChecked = true
-        // Set action bar title
-        title = menuItem.title
-        // Close the navigation drawer
-        mDrawer.closeDrawers()
-    }
+//    private fun selectDrawerItem(menuItem: MenuItem) {
+//        // Create a new fragment and specify the fragment to show based on nav item clicked
+//        val fragment: Fragment? = null
+//        val fragmentClass: Class<*>? = null
+//        when (menuItem.itemId) {
+//            R.id.nav_first_fragment -> if (fragmentManager!!.findFragmentByTag("home_fragment") == null) fragmentManager!!.beginTransaction()
+//                .replace(R.id.flContent, HomeScreenFragment(), "home_fragment")
+//                .commit() else fragmentManager!!.beginTransaction()
+//                .replace(R.id.flContent, fragmentManager!!.findFragmentByTag("home_fragment")!!)
+//                .commit()
+//            R.id.nav_second_fragment -> if (fragmentManager!!.findFragmentByTag("profile_fragment") == null) fragmentManager!!.beginTransaction()
+//                .replace(R.id.flContent, ProfileFragment(), "profile_fragment")
+//                .commit() else fragmentManager!!.beginTransaction()
+//                .replace(R.id.flContent, fragmentManager!!.findFragmentByTag("profile_fragment")!!)
+//                .commit()
+//            R.id.nav_third_fragment -> if (fragmentManager!!.findFragmentByTag("favorites_fragment") == null) fragmentManager!!.beginTransaction()
+//                .replace(R.id.flContent, FavoritesFragment(), "favorites_fragment")
+//                .commit() else fragmentManager!!.beginTransaction().replace(
+//                R.id.flContent,
+//                fragmentManager!!.findFragmentByTag("favorites_fragment")!!
+//            ).commit()
+//            else -> if (fragmentManager!!.findFragmentByTag("home_fragment") == null) fragmentManager!!.beginTransaction()
+//                .replace(R.id.flContent, HomeScreenFragment(), "home_fragment")
+//                .commit() else fragmentManager!!.beginTransaction()
+//                .replace(R.id.flContent, fragmentManager!!.findFragmentByTag("home_fragment")!!)
+//                .commit()
+//        }
+//        //
+//        // Highlight the selected item has been done by NavigationView
+//        menuItem.isChecked = true
+//        // Set action bar title
+//        title = menuItem.title
+//        // Close the navigation drawer
+//        mDrawer.closeDrawers()
+//    }
 
     private fun setupDrawerToggle(): ActionBarDrawerToggle {
         // NOTE: Make sure you pass in a valid toolbar reference.  ActionBarDrawToggle() does not require it
@@ -148,5 +159,22 @@ class MainActivity : AppCompatActivity() {
         super.onConfigurationChanged(newConfig)
         // Pass any configuration change to the drawer toggles
         drawerToggle!!.onConfigurationChanged(newConfig)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        item.isChecked = true
+        mDrawer.closeDrawers()
+        when (item.itemId) {
+            R.id.nav_first_fragment -> {
+                navController.navigate(R.id.homeScreenFragment)
+            }
+            R.id.nav_second_fragment -> {
+                navController.navigate(R.id.profileFragment)
+            }
+            R.id.nav_third_fragment -> {
+                navController.navigate(R.id.favoritesFragment)
+            }
+        }
+        return true
     }
 }

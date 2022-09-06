@@ -16,6 +16,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import java.io.IOException
 import java.util.ArrayList
 
@@ -44,10 +45,7 @@ class ProfileFragment : Fragment() {
         spinner = rootView.findViewById<View>(R.id.radius_spinner) as Spinner
         submitButton.setOnClickListener {
             saveAddress()
-            val fragmentManager = fragmentManager
-            fragmentManager!!.beginTransaction()
-                .add(R.id.flContent, HomeScreenFragment())
-                .commit()
+            Navigation.findNavController(it).navigate(R.id.homeScreenFragment);
         }
         profilePic.setOnClickListener {
             val intent = Intent()

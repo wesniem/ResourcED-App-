@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import nyc.c4q.wesniemarcelin.resourcedapp.R
 import nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment
 
@@ -23,10 +24,7 @@ class BeginAppInstructionFragment : Fragment() {
         mroot = inflater.inflate(R.layout.begin_frag_layout, container, false)
         beginImage = mroot.findViewById<View>(R.id.begin_button) as ImageView
         beginImage.setOnClickListener {
-            val fragmentManager = fragmentManager
-            fragmentManager!!.beginTransaction()
-                .add(R.id.flContent, HomeScreenFragment())
-                .commit()
+            Navigation.findNavController(it).navigate(R.id.homeScreenFragment);
         }
         return mroot
     }

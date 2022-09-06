@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import nyc.c4q.wesniemarcelin.resourcedapp.R
 import nyc.c4q.wesniemarcelin.resourcedapp.fragments.NavInstructionsFragment
 
@@ -23,10 +24,7 @@ class WelcomeFragment : Fragment() {
         mroot = inflater.inflate(R.layout.welcome_layout, container, false)
         nextButton = mroot.findViewById<View>(R.id.next_button_) as Button
         nextButton!!.setOnClickListener {
-            val fragmentManager = fragmentManager
-            fragmentManager!!.beginTransaction()
-                .add(R.id.flContent, NavInstructionsFragment())
-                .commit()
+            Navigation.findNavController(it).navigate(R.id.navigationInstructionsFragment);
         }
         return mroot
     }

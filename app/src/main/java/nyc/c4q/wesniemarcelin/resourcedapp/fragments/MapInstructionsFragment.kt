@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import nyc.c4q.wesniemarcelin.resourcedapp.R
 
 /**
@@ -24,10 +25,7 @@ class MapInstructionsFragment : Fragment() {
         mroot = inflater.inflate(R.layout.map_instruction_layout, container, false)
         mapNextButton = mroot.findViewById<View>(R.id.next_button2) as Button
         mapNextButton!!.setOnClickListener {
-            val fragmentManager = fragmentManager
-            fragmentManager!!.beginTransaction()
-                .add(R.id.flContent, BeginAppInstructionFragment())
-                .commit()
+            Navigation.findNavController(it).navigate(R.id.beginAppInstructionsFragment);
         }
         //        beginAnimation();
         return mroot
