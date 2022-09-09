@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/welcomeScreenFragment"
-        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.WelcomeFragment"
         tools:layout="@layout/welcome_layout">
         <action
             android:id="@+id/action_welcomeScreenFragment_to_navigationInstructionsFragment"
@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/navigationInstructionsFragment"
-        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.NavInstructionsFragment"
         tools:layout="@layout/instruction_frag">
         <action
             android:id="@+id/action_navigationInstructionsFragment_to_homeInstructionsFragment"
@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/homeInstructionsFragment"
-        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeInstructionFragment"
         tools:layout="@layout/home_instructions">
         <action
             android:id="@+id/action_homeInstructionsFragment_to_mapInstructionsFragment"
@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/mapInstructionsFragment"
-        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.MapInstructionsFragment"
         tools:layout="@layout/map_instruction_layout">
         <action
             android:id="@+id/action_mapInstructionsFragment_to_beginAppInstructionsFragment"
@@ -43,7 +43,7 @@
 
     <fragment
         android:id="@+id/beginAppInstructionsFragment"
-        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.BeginAppInstructionFragment"
         tools:layout="@layout/begin_frag_layout">
         <action
             android:id="@+id/action_beginAppInstructionsFragment_to_homeScreenFragment"
@@ -53,16 +53,23 @@
     <fragment
         android:id="@+id/homeScreenFragment"
         android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
-        tools:layout="@layout/home_screen_layout"/>
+        tools:layout="@layout/home_screen_layout">
+        <action
+            android:id="@+id/action_homeScreenFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.FavoritesFragment"
         tools:layout="@layout/favorites_layout"/>
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment"
+        android:name="nyc.c4q.wesniemarcelin.resourcedapp.fragments.ProfileFragment"
         tools:layout="@layout/profile_layout"/>
 
 </navigation>

@@ -1,12 +1,10 @@
 package nyc.c4q.wesniemarcelin.resourcedapp.fragments
 
 import androidx.cardview.widget.CardView
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.os.Bundle
 import nyc.c4q.wesniemarcelin.resourcedapp.R
 import android.content.Intent
-import android.view.View
+import android.view.*
 import androidx.fragment.app.Fragment
 import nyc.c4q.wesniemarcelin.resourcedapp.google_map.MapsActivity_Hakeem
 
@@ -22,6 +20,7 @@ class HomeScreenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setHasOptionsMenu(true)
         root = inflater.inflate(R.layout.home_screen_layout, container, false)
         daycareCard = root.findViewById<View>(R.id.daycare_card_view) as CardView
         prekCard = root.findViewById<View>(R.id.prek_card_view) as CardView
@@ -34,5 +33,10 @@ class HomeScreenFragment : Fragment() {
             startActivity(intent)
         }
         return root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.nav_menu, menu)
     }
 }

@@ -9,21 +9,24 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import nyc.c4q.wesniemarcelin.resourcedapp.backend.ChildCareClient
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    private lateinit var mDrawer: DrawerLayout
+    private lateinit var drawerLayout: DrawerLayout
     private lateinit var toolbar: Toolbar
-    private lateinit var nvDrawer: NavigationView
+    private lateinit var navigationView: NavigationView
     private lateinit var navController: NavController
 
     /*
@@ -35,7 +38,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
     // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
-    private var drawerToggle: ActionBarDrawerToggle? = null
+//    private var drawerToggle: ActionBarDrawerToggle? = null
     private var fragmentManager: FragmentManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,24 +55,36 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
         // Find our drawer view
-        mDrawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout // ...From section above...
+        drawerLayout =
+            findViewById<View>(R.id.drawer_layout) as DrawerLayout // ...From section above...
         // Find our drawer view
-        nvDrawer = findViewById<View>(R.id.nvView) as NavigationView // Setup drawer view
+        navigationView = findViewById<View>(R.id.nvView) as NavigationView // Setup drawer view
 //        setupDrawerContent(nvDrawer)
         // Tie DrawerLayout events to the ActionBarToggle
-        mDrawer.setDrawerListener(drawerToggle)
-        drawerToggle = setupDrawerToggle()
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
-        navController = navHostFragment.navController
-        NavigationUI.setupActionBarWithNavController(this, navController, mDrawer)
-        val config = AppBarConfiguration.Builder(
-            navController.graph
-        ).setDrawerLayout(
-            mDrawer
-        ).build()
-        NavigationUI.setupWithNavController(toolbar, navController,config)
-        val headerLayout = nvDrawer.getHeaderView(0)
-        val menu = nvDrawer.menu
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar, 0, 0
+        )
+
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        navigationView.setNavigationItemSelectedListener(this)
+//        drawerLayout.setDrawerListener(drawerToggle)
+//        drawerToggle = setupDrawerToggle()
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+        navController = navHostFragment.findNavController()
+        setSupportActionBar(toolbar)
+        setupActionBarWithNavController(navController)
+        toolbar.setupWithNavController(navController, drawerLayout)
+//        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+//        val config = AppBarConfiguration.Builder(
+//            navController.graph
+//        ).setDrawerLayout(
+//            drawerLayout
+//        ).build()
+//        NavigationUI.setupWithNavController(toolbar, navController,config)
+        val headerLayout = navigationView.getHeaderView(0)
+        val menu = navigationView.menu
         //        MenuItem menuItem = menu.findItem(R.id.nav_switch);
 //        View actionView = MenuItemCompat.getActionView(menuItem);
 //        actionView.setOnClickListener(new View.OnClickListener() {
@@ -84,11 +99,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //            .commit()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (drawerToggle!!.onOptionsItemSelected(item)) {
-            true
-        } else super.onOptionsItemSelected(item)
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return if (drawerToggle!!.onOptionsItemSelected(item)) {
+//            true
+//        } else super.onOptionsItemSelected(item)
+//    }
 
 //    private fun setupDrawerContent(navigationView: NavigationView?) {
 //        navigationView!!.setNavigationItemSelectedListener { menuItem ->
@@ -138,32 +153,34 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // and will not render the hamburger icon without it.
         return ActionBarDrawerToggle(
             this,
-            mDrawer,
+            drawerLayout,
             toolbar,
             R.string.drawer_open,
             R.string.drawer_close
         )
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
     // `onPostCreate` called when activity start-up is complete after `onStart()`
     // NOTE 1: Make sure to override the method with only a single `Bundle` argument
     // Note 2: Make sure you implement the correct `onPostCreate(Bundle savedInstanceState)` method.
     // There are 2 signatures and only `onPostCreate(Bundle state)` shows the hamburger icon.
-    override fun onPostCreate(savedInstanceState: Bundle?) {
-        super.onPostCreate(savedInstanceState)
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-        drawerToggle!!.syncState()
-    }
+//    override fun onPostCreate(savedInstanceState: Bundle?) {
+//        super.onPostCreate(savedInstanceState)
+//        // Sync the toggle state after onRestoreInstanceState has occurred.
+//        drawerToggle!!.syncState()
+//    }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        // Pass any configuration change to the drawer toggles
-        drawerToggle!!.onConfigurationChanged(newConfig)
-    }
+//    override fun onConfigurationChanged(newConfig: Configuration) {
+//        super.onConfigurationChanged(newConfig)
+//        // Pass any configuration change to the drawer toggles
+//        drawerToggle!!.onConfigurationChanged(newConfig)
+//    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        item.isChecked = true
-        mDrawer.closeDrawers()
         when (item.itemId) {
             R.id.nav_first_fragment -> {
                 navController.navigate(R.id.homeScreenFragment)
@@ -175,6 +192,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 navController.navigate(R.id.favoritesFragment)
             }
         }
+        drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 }

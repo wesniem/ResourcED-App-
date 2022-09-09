@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.os.Bundle
 import nyc.c4q.wesniemarcelin.resourcedapp.R
-import nyc.c4q.wesniemarcelin.resourcedapp.fragments.HomeScreenFragment
 import android.content.Intent
 import android.app.Activity
 import android.content.Context
-import nyc.c4q.wesniemarcelin.resourcedapp.fragments.ProfileFragment
 import android.provider.MediaStore
 import android.graphics.Bitmap
 import android.util.Log
