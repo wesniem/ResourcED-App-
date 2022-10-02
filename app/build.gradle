@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdk 33
     buildToolsVersion '32.0.0'
     defaultConfig {
         applicationId "nyc.c4q.wesniemarcelin.resourcedapp"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
@@ -43,9 +44,18 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    def version_nav = "2.2.1"
+    def version_nav = "2.5.2"
     implementation "androidx.navigation:navigation-fragment-ktx:$version_nav"
     implementation "androidx.navigation:navigation-ui-ktx:$version_nav"
+
+    //viewpager2
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    //indicator
+    implementation 'me.relex:circleindicator:2.1.6'
+    //lottie
+    implementation "com.airbnb.android:lottie:3.4.1"
+    //datastore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
 }
 repositories {
     mavenCentral()
